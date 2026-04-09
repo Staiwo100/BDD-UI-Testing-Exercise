@@ -44,7 +44,7 @@ def step_add_task(context, task_title):
     # fill() types text into a field; replace ___ with "#task-input"
     context.page.fill("#task-input", task_title)
     # click() clicks a button; replace ___ with "#add-btn"
-    context.page.click("add-btn")
+    context.page.click("#add-btn")
 
 # ── STEP 4: Submit the form with no text typed ───────────────────
 # This @when matches: When the user submits an empty task
@@ -65,7 +65,7 @@ def step_check_list(context, task_title):
     context.page.wait_for_selector("#task-list")
     # text_content() reads all visible text inside the element
     # Replace ___ with the ID selector for the task list  →  "#task-list"
-    list_text = context.page.text_content("task-list")
+    list_text = context.page.text_content("#task-list")
     # assert checks that task_title appears somewhere in the list text
     # If it does NOT, the test fails and shows this error message
     assert task_title in list_text, \
